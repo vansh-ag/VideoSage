@@ -1,43 +1,113 @@
-# 🎥 VideoSage - Video RAG Assistant
+# 🎥 VideoSage - AI-Powered Video RAG Assistant
 
-VideoSage is an AI-powered Video RAG (Retrieval-Augmented Generation) application that enables users to chat with videos, audio recordings, and YouTube content.
+VideoSage is an AI-powered Retrieval-Augmented Generation (RAG) application that transforms videos, audio recordings, and YouTube content into an interactive knowledge base. Instead of manually watching hours of content to find specific information, users can simply ask questions in natural language and receive accurate, context-aware answers grounded in the original media.
 
-The system extracts audio, generates transcripts using Whisper, creates embeddings, stores them in ChromaDB, and answers user questions using Mistral AI.
+The system automatically extracts audio from multimedia sources, generates transcripts using OpenAI Whisper, converts text into vector embeddings, stores them in ChromaDB, and uses Mistral AI to generate intelligent responses based on the most relevant retrieved context.
 
-## Features
+## 🚀 Problem Statement
+
+Modern digital content such as lectures, webinars, podcasts, interviews, meetings, and tutorials often contains valuable information hidden within hours of recordings. Traditional search methods require users to manually navigate timelines, rewatch content, or rely on incomplete notes.
+
+Common challenges include:
+
+* Finding specific information within long videos.
+* Extracting insights from large volumes of multimedia content.
+* Understanding content without watching entire recordings.
+* Searching videos beyond simple keyword matching.
+* Retrieving contextual answers from spoken conversations.
+
+VideoSage solves these challenges by enabling conversational interaction with multimedia content through Retrieval-Augmented Generation (RAG).
+
+## 💡 Solution
+
+VideoSage converts unstructured video and audio data into a searchable semantic knowledge base. Users can upload media files or provide YouTube URLs and instantly query the content using natural language.
+
+The platform:
+
+* Transcribes spoken content automatically.
+* Creates semantic vector representations of transcripts.
+* Retrieves the most relevant content for a user query.
+* Generates context-aware responses using an LLM.
+* Provides source attribution and timestamps for transparency.
+
+## ✨ Features
 
 * Upload MP4, MP3, WAV, MOV, and MKV files
-* Process YouTube videos using URL input
+* Process YouTube videos via URL
 * Automatic audio extraction and conversion
-* Whisper-based speech-to-text transcription
+* Whisper-powered speech-to-text transcription
 * Optional transcript translation
-* ChromaDB vector database
-* Semantic search with sentence-transformers embeddings
+* Semantic search using vector embeddings
+* ChromaDB vector database integration
+* Retrieval-Augmented Generation (RAG)
 * Mistral-powered question answering
 * Source attribution with timestamps
-* Streamlit user interface
+* Interactive Streamlit interface
+* Support for long-form multimedia content
 
-## Architecture
+## ⚙️ How It Works
 
-Input Source
+1. **Content Ingestion**
 
-→ Audio Extraction
+   * Accepts YouTube URLs, video files, and audio recordings.
 
-→ Whisper Transcription
+2. **Audio Processing**
 
-→ Text Chunking
+   * Extracts and standardizes audio using FFmpeg and Pydub.
 
-→ Embedding Generation
+3. **Speech Recognition**
 
-→ ChromaDB Storage
+   * Generates transcripts using OpenAI Whisper.
 
-→ Retrieval
+4. **Text Chunking**
 
-→ Mistral LLM
+   * Splits transcripts into semantically meaningful chunks.
 
-→ Answer Generation
+5. **Embedding Generation**
 
-## Tech Stack
+   * Creates vector embeddings using Sentence Transformers.
+
+6. **Vector Storage**
+
+   * Stores embeddings in ChromaDB for efficient retrieval.
+
+7. **Semantic Retrieval**
+
+   * Retrieves the most relevant transcript segments for a query.
+
+8. **Answer Generation**
+
+   * Mistral AI generates grounded responses using retrieved context.
+
+## 🏗️ Architecture
+
+Input Source (YouTube / Video / Audio)
+
+↓
+Audio Extraction & Processing
+
+↓
+Whisper Transcription
+
+↓
+Transcript Chunking
+
+↓
+Embedding Generation
+
+↓
+ChromaDB Vector Storage
+
+↓
+Semantic Retrieval
+
+↓
+Mistral AI
+
+↓
+Context-Aware Answer Generation
+
+## 🛠️ Tech Stack
 
 ### AI & LLM
 
@@ -45,13 +115,13 @@ Input Source
 * Mistral AI
 * LangChain
 
-### RAG
+### RAG Pipeline
 
 * ChromaDB
 * Sentence Transformers
 * HuggingFace Embeddings
 
-### Backend
+### Backend & Processing
 
 * Python
 * yt-dlp
@@ -62,7 +132,18 @@ Input Source
 
 * Streamlit
 
-## Project Structure
+## 🎯 Real-World Use Cases
+
+* Educational lecture assistants
+* Podcast knowledge retrieval
+* Meeting and interview analysis
+* Webinar summarization
+* Research content exploration
+* Corporate training search systems
+* Content creator productivity tools
+* Video-based customer support systems
+
+## 📂 Project Structure
 
 video-rag/
 
@@ -96,87 +177,21 @@ video-rag/
 
 └── README.md
 
-## Installation
-
-Clone the repository
-
-```bash
-git clone <repository-url>
-cd VideoSage
-```
-
-Create virtual environment
-
-```bash
-python -m venv .venv
-```
-
-Activate virtual environment
-
-```bash
-.venv\Scripts\activate
-```
-
-Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-Install FFmpeg
-
-Verify installation
-
-```bash
-ffmpeg -version
-ffprobe -version
-```
-
-## Environment Variables
-
-Create a .env file
-
-```env
-MISTRAL_API_KEY=your_mistral_api_key
-WHISPER_MODEL=small
-```
-
-## Run Application
-
-```bash
-streamlit run streamlit_app.py
-```
-
-## Usage
-
-1. Upload a video/audio file or provide a YouTube URL.
-2. Process the content.
-3. Wait for transcription and indexing.
-4. Ask questions about the content.
-5. View answers with timestamps.
-
-## Current Phase
-
-Phase 1 Features
-
-* Video & Audio Upload
-* YouTube URL Processing
-* Whisper Transcription
-* ChromaDB Vector Store
-* Semantic Search
-* Mistral QA
-* Streamlit Interface
-
-## Future Improvements
+## 🔮 Future Improvements
 
 * FastAPI Backend
-* Multi-video Knowledge Base
-* Chat History
+* Multi-Video Knowledge Base
+* Persistent Chat History
 * Speaker Diarization
-* Video Timestamp Navigation
-* Hybrid Search
-* User Authentication
+* Timestamp Navigation
+* Hybrid Search (Keyword + Semantic Search)
+* User Authentication & Workspaces
+* Multi-Language Support
+* Cloud Deployment
+* Team Collaboration Features
 
-## Author
+## 👨‍💻 Author
 
-Vansh Agarwal
+**Vansh Agarwal**
+
+AI/ML Engineer | GenAI Developer | Software Engineer
