@@ -190,6 +190,76 @@ video-rag/
 * Cloud Deployment
 * Team Collaboration Features
 
+## Clone Repository
+
+Clone the repository to your local machine:
+
+```bash
+git clone https://github.com/<your-username>/VideoSage.git
+cd VideoSage
+```
+
+## Create Virtual Environment
+
+### Windows
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
+
+### Linux / macOS
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+## Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## Install FFmpeg
+
+VideoSage requires FFmpeg for audio extraction and processing.
+
+Verify installation:
+
+```bash
+ffmpeg -version
+ffprobe -version
+```
+
+## Configure Environment Variables
+
+Create a `.env` file in the project root:
+
+```env
+MISTRAL_API_KEY=your_mistral_api_key
+WHISPER_MODEL=small
+```
+
+## Run VideoSage
+
+```bash
+streamlit run streamlit_app.py
+```
+
+After launching, open the Streamlit URL displayed in the terminal (typically `http://localhost:8501`).
+
+## Quick Test
+
+1. Upload a video/audio file or provide a YouTube URL.
+2. Click **Process Content**.
+3. Wait for transcription and indexing.
+4. Ask questions about the content.
+5. Receive timestamp-aware answers generated using RAG and Mistral AI.
+
+```
+```
+
 ## 👨‍💻 Author
 
 **Vansh Agarwal**
